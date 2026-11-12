@@ -1,4 +1,6 @@
-SELECT d.nome, COUNT(t.id_topico) AS total
+SELECT d.nome,
+       COUNT(t.id_topico) AS total,
+       SUM(t.status = 'Concluído') AS concluidos
 FROM disciplinas d
 LEFT JOIN topicos t ON t.id_disciplina = d.id_disciplina
 GROUP BY d.nome;
